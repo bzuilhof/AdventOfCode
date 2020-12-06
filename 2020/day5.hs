@@ -12,11 +12,12 @@ getRow input = binarySearch input 0 127
 getColumn input = binarySearch input 0 7
 
 binarySearch :: String -> Int -> Int -> Int
-binarySearch (x:xs) lb ub   | null xs && (x == 'F' || x == 'L') = lb
-                            | null xs = ub
-                            | x == 'F' || x == 'L' = binarySearch xs lb (ub - halfSize)
+binarySearch [x] lb ub | x == 'F' || x == 'L' = lb
+                       | otherwise = ub
+binarySearch (x:xs) lb ub   | x == 'F' || x == 'L' = binarySearch xs lb (ub - halfSize)
                             | otherwise = binarySearch xs (lb + halfSize) ub
                             where halfSize = getHalfSize lb ub
+
 
 getHalfSize :: Integral a => a -> a -> a
 getHalfSize lb ub = (ub - lb ) `div` 2 + 1
