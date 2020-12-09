@@ -31,6 +31,9 @@ getArrayIndexWithDefault :: Array Int p -> Int -> p -> p
 getArrayIndexWithDefault arr index def | index >= length arr = def
                                       | otherwise = arr Array.! index
 
+getArrayIndex :: Array Int p -> Int -> p -> p
+getArrayIndex arr index def | index >= length arr = def
+                                      | otherwise = arr Array.! index
 
 part1 :: Int
 part1 = runProgram (toArray inputData) Map.empty 0 0
