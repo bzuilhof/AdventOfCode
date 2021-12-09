@@ -24,7 +24,7 @@ getMap s = fromList [(sort x1, 1), (sort x2,2), (sort x3,3), (sort x4,4), (sort 
                 [x2,x3,x5] = solve235 x1 x9 $ filter (\x -> length x == 5) s
 
 solve069 :: String -> String -> [String] -> [String]
-solve069 x1 x4 s@[a,b,c] = [x0, x6, x9]
+solve069 x1 x4 s = [x0, x6, x9]
                     where 
                         x6 = head (filter (\x -> length (x `intersect` x1) == 1) s)
                         x09 = s \\ [x6]
@@ -32,7 +32,7 @@ solve069 x1 x4 s@[a,b,c] = [x0, x6, x9]
                         x0 = head (s \\ [x9,x6])
 
 solve235 :: String -> String -> [String] -> [String]
-solve235 x1 x9 s@[a,b,c] = [x2, x3, x5]
+solve235 x1 x9 s = [x2, x3, x5]
                     where 
                         x3 = head (filter (\x -> length (x `intersect` x1) == 2) s)
                         x25 = s \\ [x3]
