@@ -1,4 +1,4 @@
-module Day1 where
+module Day2 where
 import Data.List
 inputData, inputDataTest :: [Match]
 type Match = (Char, Char)
