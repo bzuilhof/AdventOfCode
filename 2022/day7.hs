@@ -9,7 +9,9 @@ data Loc = FileP Int | Folder [Loc]
 
 parse :: [String] -> [String]-> Loc -> Loc
 parse [] _ t = t
-parse (x:xs) path (t a) | c == "cd" = parse xs (c:path) t
+parse (x:xs) path t | c == "cd" = parse xs (c:path) t
+                    | c == "ls"  parse xs path t
+                    
             where 
                 split = words x
                 c = head split

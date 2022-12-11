@@ -50,5 +50,5 @@ isNeighbour :: (Int, Int) -> (Int, Int) -> Bool
 isNeighbour  ch@(x, y) ct = ct `elem` [(nx, ny)| nx <- [(x-1)..(x+1)], ny <- [(y-1)..(y+1)]]
 
 part1, part2 :: Int
-part1 = (length . nub) $ run testInput (0,0) (0,0) [(0,0)]
+part1 = (length . nub) $ run inputData (0,0) (0,0) [(0,0)]
 part2 = (length . nub) $ runP2 inputData (replicate 10 (0,0)) [(0,0)]
