@@ -1,3 +1,4 @@
+{-# OPTIONS_GHC -Wno-incomplete-patterns #-}
 module Day15 where
 
 import Data.Char (ord, digitToInt)
@@ -55,10 +56,13 @@ calculateBox m k = (k + 1) * sum (map (uncurry (*)) tup)
                 where
                     tup = zip [1..] (map snd (m ! k))
                     
+
 part1, part2 :: [String] -> Int
 part1 i = sum $ map compute i
 part2 i = calculateScore computed
         where
             computed = foldl process Map.empty p
             p = map parse i
+
+
 

@@ -8,11 +8,11 @@ racesP2 = [(53916768,250133010811025)]
 
 getPossibleDistances :: Int -> [Int] -> [Int]
 getPossibleDistances _ [] = []
-getPossibleDistances m (p:xs) = d : (getPossibleDistances m xs)
+getPossibleDistances m (p:xs) = d : getPossibleDistances m xs
                             where d = (m - p) * p
 
 getPossibleWins :: (Int, Int) -> Int
 getPossibleWins (t, r) = length $ filter (>r) (getPossibleDistances t [0..t])
 
 part1 :: [(Int,Int)] -> Int
-part1 rs = foldr1 (*) (map getPossibleWins rs)
+part1 rs = product (map getPossibleWins rs)
